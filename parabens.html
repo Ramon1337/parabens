@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PARABENS ALEX 🎂🥳</title>
+  <style>
+    #conteudo {
+      background: lightblue;
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      padding: 10px;
+      text-align: center;
+      font-family: sans-serif;
+    }
+
+    .btn {
+      background: black;
+      color: white;
+      border: none;
+      padding: 15px;
+      width: 100px;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 5px;
+    }
+
+    @media (max-width: 600px) {
+      .btn {
+        padding: 10px;
+        width: 80px;
+        font-size: 14px;
+      }
+
+      #conteudo h2 {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="conteudo">
+    <h2>O Ramon te mandou parabéns no dia exato do seu aniversário?</h2>
+    <div style="margin: auto; width: 200px; display: flex; justify-content: space-between; padding: 20px;">
+      <button class="btn" onclick="sim()">SIM</button>
+      <button class="btn" onclick="desvia(this)" onmouseover="desvia(this)" style="position: relative;">NÃO</button>
+    </div>
+  </div>
+
+  <script>
+    function sim() {
+      alert("Sim, eu jamais poderia de um cara tão especial como você! Feliz aniversário, Alex! 🎉🎂");
+      location.href = "youtube://ELFpWoXrTDQ";
+      // Fallback para caso o app não abra
+      setTimeout(function () {
+        location.href = "https://www.youtube.com/watch?v=rrDh77Bmny0";
+      }, 1000);
+    }
+
+    function desvia(btn) {
+      btn.style.position = 'absolute';
+
+      let bottomPos = geraPosicao(10, 90);
+      let leftPos = geraPosicao(10, 90);
+
+      btn.style.bottom = bottomPos;
+      btn.style.left = leftPos;
+
+      let mensagem = document.createElement('div');
+      mensagem.innerText = "opa, desviei 🤪🤪";
+      mensagem.style.position = 'fixed';
+      mensagem.style.bottom = bottomPos;
+      mensagem.style.left = leftPos;
+      mensagem.style.transform = 'translate(-50%, 50%)';
+      mensagem.style.color = 'black';
+      mensagem.style.padding = '2px';
+      mensagem.style.borderRadius = '5px';
+      mensagem.style.zIndex = '1000';
+      mensagem.style.fontFamily = 'sans-serif';
+
+      document.body.appendChild(mensagem);
+
+      setTimeout(() => {
+        mensagem.remove();
+      }, 2000);
+    }
+
+    function geraPosicao(min, max) {
+      return (Math.random() * (max - min) + min) + "%";
+    }
+  </script>
+
+</body>
+
+</html>
